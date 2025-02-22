@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package protobuf;
+
+option go_package="github.com/durgadaspatil45/grpc-server-client-app/protobuf-spec";
+
+message Customer{
+    uint32 id=1;
+    string name=2;
+    string email=3;
+    string phoneNo=4;
+}
+
+message CreateCustomerRequest{
+    Customer Customer=1;
+}
+
+message CreateCustomerResponse{
+    string message=1;
+}
+service CustomerService{
+    rpc CreateCustomer(CreateCustomerRequest) returns (CreateCustomerResponse);
+}
